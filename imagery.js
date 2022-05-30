@@ -1,5 +1,5 @@
 // resize layers control to fit into view.
-function resizeLayerControl () {
+function resizeLayerControl() {
   var layerControlHeight = document.body.clientHeight - (10 + 50);
   var layerControl = document.getElementsByClassName('leaflet-control-layers-expanded')[0];
 
@@ -270,11 +270,11 @@ maxZoom: 19
   layers.addBaseLayer(AerialImagery_AerialImagery1996, "Aerial Imagery 1996");
 
   var AerialImagery_AerialImagery1992 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
-    layers: 'Aerial Imagery_Aerial Imagery 1992 - Muizenberg',
+    layers: 'Aerial Imagery_Aerial Imagery 1992',
     attribution: '1992 Orthorectified greyscale mosaic covers Muizenberg. Original imagery property of CCT. Original scale 1:10 000. Mosaicked to 0.20m pixel size, compressed to ecw 20x compression. Planimetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes',
     maxZoom: 22
   })
-  layers.addBaseLayer(AerialImagery_AerialImagery1992, "Aerial Imagery 1992");
+  layers.addBaseLayer(AerialImagery_AerialImagery1992, "Aerial Imagery 1992 - Muizenberg");
 
   var AerialImagery_AerialImagery1988 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1988',
@@ -302,7 +302,7 @@ maxZoom: 19
 
   var AerialImagery_AerialImagery1984 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1984',
-    attribution: 'The 1984 digital orthophoto displays a  b/w image covering patches over Crossroads, Vissershok, Strandfontein, Swartklip, Zeekoevlei, CBD, Woodstock, Bishopscourt, Epping Industrial, Wemmershoek-Tygerberg Pipeline and Kuilsriver in the municipal area of the City of Cape Town.  It was processed from 1984 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).The 1984 digital orthophoto displays a  b/w image covering patches over Crossroads, Vissershok, Strandfontein, Swartklip, Zeekoevlei, CBD, Woodstock, Bishopscourt, Epping Industrial, Wemmershoek-Tygerberg Pipeline and Kuilsriver in the municipal area of the City of Cape Town.  It was processed from 1984 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).The 1984 digital orthophoto displays a  b/w image covering patches over Crossroads, Vissershok, Strandfontein, Swartklip, Zeekoevlei, CBD, Woodstock, Bishopscourt, Epping Industrial, Wemmershoek-Tygerberg Pipeline and Kuilsriver in the municipal area of the City of Cape Town.  It was processed from 1984 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).The 1984 digital orthophoto displays a  b/w image covering patches over Crossroads, Vissershok, Strandfontein, Swartklip, Zeekoevlei, CBD, Woodstock, Bishopscourt, Epping Industrial, Wemmershoek-Tygerberg Pipeline and Kuilsriver in the municipal area of the City of Cape Town.  It was processed from 1984 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).',
+    attribution: 'The 1984 digital orthophoto displays a  b/w image covering patches over Crossroads, Vissershok, Strandfontein, Swartklip, Zeekoevlei, CBD, Woodstock, Bishopscourt, Epping Industrial, Wemmershoek-Tygerberg Pipeline and Kuilsriver in the municipal area of the City of Cape Town.  It was processed from 1984 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1984, "Aerial Imagery 1984");
@@ -405,7 +405,7 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1926, "Aerial Imagery 1926");
 
-        // Add the permalink control
+  // Add the permalink control
   map.addControl(new L.Control.Permalink());
 
    var lc = L.control.locate({
