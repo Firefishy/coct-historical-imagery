@@ -56,7 +56,7 @@ function createMap(divName) {
     attribution: '2017 January true orthorectified colour mosaic.  Orthorectified using a DSM generated from the source imagery. Coverage is only of the CBD. Original imagery property of CCT. Imagery captured with digital camera to enable mosaic pixel size of 0.08m. Compressed to ecw 20x compression. Planimmetric fidelity expected within 0.3m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
-  layers.addBaseLayer(AerialImagery_AerialImagery2017Jan_CBDTrueOrtho, "Aerial Imagery 2017Jan_CBD True Ortho");
+  layers.addBaseLayer(AerialImagery_AerialImagery2017Jan_CBDTrueOrtho, "Aerial Imagery 2017 Jan - CBD - True Ortho");
 
   var AerialImagery_AerialImagery2017Jan = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2017Jan',
