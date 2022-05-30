@@ -1,6 +1,6 @@
 // resize layers control to fit into view.
 function resizeLayerControl() {
-  var layerControlHeight = document.body.clientHeight - (10 + 50);
+  var layerControlHeight = document.getElementById("map").clientHeight - (10 + 50);
   var layerControl = document.getElementsByClassName('leaflet-control-layers-expanded')[0];
 
   layerControl.style.overflowY = 'auto';
@@ -8,19 +8,19 @@ function resizeLayerControl() {
 }
 
 function createMap(divName) {
-// Create a map
-var map = L.map(divName, {
-worldCopyJump: true
-}).fitBounds([[-34.2,17.65],[-33.55,19.39]]);
+  // Create a map
+  var map = L.map(divName, {
+  worldCopyJump: true
+  }).fitBounds([[-34.2,17.65],[-33.55,19.39]]);
 
-// Create a layer switcher
-var layers = L.control.layers(null, null, {collapsed:false}).addTo(map);
+  // Create a layer switcher
+  var layers = L.control.layers(null, null, {collapsed:false}).addTo(map);
 
-// Add OpenStreetMap layer
-layers.addBaseLayer(L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-attribution: "© <a target=\"_parent\" href=\"https://www.openstreetmap.org\">OpenStreetMap</a> and contributors, under an <a target=\"_parent\" href=\"https://www.openstreetmap.org/copyright\">open license</a>",
-maxZoom: 19
-}), "OpenStreetMap");
+  // Add OpenStreetMap layer
+  layers.addBaseLayer(L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© <a target=\"_parent\" href=\"https://www.openstreetmap.org\">OpenStreetMap</a> and contributors, under an <a target=\"_parent\" href=\"https://www.openstreetmap.org/copyright\">open license</a>",
+    maxZoom: 19
+  }), "OpenStreetMap");
 
   var AerialImagery_AerialImagery2021Mar_v3 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2021Mar_v3',
@@ -119,14 +119,6 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2012Dec, "Aerial Imagery 2012 Dec");
 
-  var AerialImagery_AerialImagery2011Mar = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
-    layers: 'Aerial Imagery_Aerial Imagery 2011Mar',
-    attribution: '2011 March orthorectified colour mosaic. Original imagery property of CCT. Imagery captured with digital camera to enable mosaic pixel size of 0.125m. Compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
-    maxZoom: 22
-  })
-  layers.addBaseLayer(AerialImagery_AerialImagery2011Mar, "Aerial Imagery 2011 Mar");
-
-
   var AerialImagery_AerialImagery2011Dec = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2011Dec',
     attribution: '2011 December orthorectified colour mosaic. Original imagery property of CCT. Imagery captured with digital camera to enable mosaic pixel size of 0.125m. Compressed to ecw 20x compression. Planimmetric fidelity expected within 0.3m.... No restrictions on the digital file for non-commercial purposes.',
@@ -134,6 +126,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2011Dec, "Aerial Imagery 2011 Dec");
 
+  var AerialImagery_AerialImagery2011Mar = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
+    layers: 'Aerial Imagery_Aerial Imagery 2011Mar',
+    attribution: '2011 March orthorectified colour mosaic. Original imagery property of CCT. Imagery captured with digital camera to enable mosaic pixel size of 0.125m. Compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
+    maxZoom: 22
+  })
+  layers.addBaseLayer(AerialImagery_AerialImagery2011Mar, "Aerial Imagery 2011 Mar");
 
   var AerialImagery_AerialImagery2009_WemmershoekPipeline = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2009_Wemmershoek Pipeline',
@@ -142,14 +140,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2009_WemmershoekPipeline, "Aerial Imagery 2009 - Wemmershoek Pipeline");
 
-
   var AerialImagery_AerialImagery2009_VoelVleiPipeline = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2009_VoelVlei Pipeline',
     attribution: '2009 Voelvlei pipeline orthorectified colour mosaic. Original imagery property of CCT. Imagery captured with digital camera to enable mosaic pixel size of 0.20m. Compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2009_VoelVleiPipeline, "Aerial Imagery 2009 - VoelVlei Pipeline");
-
 
   var AerialImagery_AerialImagery2009Nov = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2009Nov',
@@ -158,7 +154,6 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2009Nov, "Aerial Imagery 2009 Nov");
 
-
   var AerialImagery_AerialImagery2009Mar = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2009Mar',
     attribution: '2009 March orthorectified colour mosaic. Original imagery property of CCT. Imagery captured with digital camera to enable mosaic pixel size of 0.125m. Compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
@@ -166,14 +161,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2009Mar, "Aerial Imagery 2009 Mar");
 
-
   var AerialImagery_AerialImagery2008June = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2008June',
     attribution: '2008 orthorectified colour mosaic. Original imagery property of CCT. Original scale 1:10 000. Mosaicked to 0.20m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2008June, "Aerial Imagery 2008 June");
-
 
   var AerialImagery_AerialImagery2008June_RobbenIsland = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2008June_Robben Island',
@@ -189,14 +182,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2007Sep, "Aerial Imagery 2007 Sep");
 
-
   var AerialImagery_AerialImagery2007Jan = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2007Jan',
     attribution: '2007 Jan orthorectified colour mosaic. Original imagery property of CCT. Original scale 1:10 000. Mosaicked to 0.25m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2007Jan, "Aerial Imagery 2007 Jan");
-
 
   var AerialImagery_AerialImagery2006May = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2006May',
@@ -205,14 +196,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2006May, "Aerial Imagery 2006 May");
 
-
   var AerialImagery_AerialImagery2005Feb = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2005Feb',
     attribution: '2005 February orthorectified colour mosaic. Original imagery property of CCT. Original scale 1:10 000. Mosaicked to 0.25m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2005Feb, "Aerial Imagery 2005 Feb");
-
 
   var AerialImagery_AerialImagery2004July = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2004July',
@@ -221,14 +210,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2004July, "Aerial Imagery 2004 July");
 
-
   var AerialImagery_AerialImagery2003July = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2003July',
     attribution: '2003 July orthorectified colour mosaic. Original imagery property of CCT. Original scale 1:10 000. Mosaicked to 0.25m pixel size,  compressed to ecw 20x compression. This dataset covers most of the informal settlements of the CCT at that time. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2003July, "Aerial Imagery 2003 July");
-
 
   var AerialImagery_AerialImagery2002Jan = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2002Jan',
@@ -237,14 +224,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2002Jan, "Aerial Imagery 2002 Jan");
 
-
   var AerialImagery_AerialImagery2000Apr = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 2000Apr',
     attribution: '1998 Orthorectified colour mosaic. Original imagery property of CCT. Original scale 1:15 000. Mosaicked to 0.25m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery2000Apr, "Aerial Imagery 2000 Apr");
-
 
   var AerialImagery_AerialImagery1998May = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1998May',
@@ -253,14 +238,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1998May, "Aerial Imagery 1998 May");
 
-
   var AerialImagery_AerialImagery1997 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1997',
     attribution: 'The 1997 digital orthophoto displays a b/w image covering the former Central Substructure of the municipal area of the City of Cape Town. It was processed from 1997 aerial photography at the scale of 1:10000. The 1997 digital orthophoto displays a  b/w image covering the former Central Substructure of the municipal area of the City of Cape Town.  It was processed from 1997 aerial photography at the scale of 1:10000.  The digital orthophoto is available in ECW format at 25cm GSD (ground sampling distance).',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1997, "Aerial Imagery 1997");
-
 
   var AerialImagery_AerialImagery1996 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1996',
@@ -283,14 +266,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1988, "Aerial Imagery 1988");
 
-
   var AerialImagery_AerialImagery1987 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1987',
     attribution: 'The 1987 digital orthophoto displays a b/w image covering patches over Kogelbaai, Vissershok, Coastal Park and Swartklip in the municipal area of the City of Cape Town.  It was processed from 1987 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1987, "Aerial Imagery 1987");
-
 
   var AerialImagery_AerialImagery1986 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1986',
@@ -299,14 +280,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1986, "Aerial Imagery 1986");
 
-
   var AerialImagery_AerialImagery1984 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1984',
     attribution: 'The 1984 digital orthophoto displays a  b/w image covering patches over Crossroads, Vissershok, Strandfontein, Swartklip, Zeekoevlei, CBD, Woodstock, Bishopscourt, Epping Industrial, Wemmershoek-Tygerberg Pipeline and Kuilsriver in the municipal area of the City of Cape Town.  It was processed from 1984 aerial photography at the scale of 1:6000.  The digital orthophoto is available in ECW format at 20cm GSD (ground sampling distance).',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1984, "Aerial Imagery 1984");
-
 
   var AerialImagery_AerialImagery1983 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1983',
@@ -315,14 +294,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1983, "Aerial Imagery 1983");
 
-
   var AerialImagery_AerialImagery1982 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1982',
     attribution: '1982 Orthorectified greyscale mosaic. Original imagery property of CCT. Original scale 1:6 000. Mosaicked to 0.20m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1982, "Aerial Imagery 1982");
-
 
   var AerialImagery_AerialImagery1981 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1981',
@@ -331,14 +308,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1981, "Aerial Imagery 1981");
 
-
   var AerialImagery_AerialImagery1980 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1980',
     attribution: '1980 Orthorectified greyscale mosaic. Original imagery property of CCT. Original scale 1:10 000. Mosaicked to 0.20m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1980, "Aerial Imagery 1980");
-
 
   var AerialImagery_AerialImagery1973 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1973',
@@ -352,7 +327,6 @@ maxZoom: 19
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1971, "Aerial Imagery 1971");
-
 
   var AerialImagery_AerialImagery1968 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1968',
@@ -369,14 +343,12 @@ maxZoom: 19
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1958, "Aerial Imagery 1958");
 
-
   var AerialImagery_AerialImagery1953 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1953',
     attribution: '1953 Orthorectified and rubber-sheeted greyscale mosaic. Original imagery property of National Geospatial Information. Original scale 1:36 000. Mosaicked to 0.25m pixel size,  compressed to ecw 20x compression. Planimmetric fidelity expected within 1m.... No restrictions on the digital file for non-commercial purposes.',
     maxZoom: 22
   })
   layers.addBaseLayer(AerialImagery_AerialImagery1953, "Aerial Imagery 1953");
-
 
   var AerialImagery_AerialImagery1945 = L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets?', {
     layers: 'Aerial Imagery_Aerial Imagery 1945',
